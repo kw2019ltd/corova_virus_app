@@ -1,0 +1,54 @@
+name: corovavirusapp
+description: corova virus app
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  http: ^0.12.0+4
+  url_launcher: ^5.4.2
+  rxdart: ^0.23.1
+  page_transition: ^1.1.5
+  loading_animations: ^2.1.0
+  logging: ^0.11.4
+  shared_preferences: ^0.5.6+3
+  font_awesome_flutter: ^8.7.0
+  share: ^0.6.3+6
+  package_info: ^0.4.0+14
+  provider: ^4.0.4
+  flutter_staggered_animations: ^0.1.2
+  google_fonts: ^0.3.9
+  path_provider: ^1.6.5
+  flutter_slidable: ^0.5.4
+  connectivity: ^0.4.8+2
+  fluttertoast: ^3.1.3
+  pie_chart: ^3.1.1
+  liquid_pull_to_refresh: ^1.1.1
+  charts_flutter: ^0.9.0
+  slide_popup_dialog: ^0.0.2
+  screenshot: ^0.1.1
+  share_extend: ^1.1.1
+  intl: ^0.16.1
+  flutter_boom_menu: ^1.0.2
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.3
+
+
+dev_dependencies:
+  pedantic: ^1.9.0
+
+
+flutter:
+
+  uses-material-design: true
+
+
+  assets:
+    - assets/images/ic_launcher.png
