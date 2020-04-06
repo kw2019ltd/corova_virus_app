@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 class CountryLineChart extends StatelessWidget {
   final String country;
+
   const CountryLineChart({this.country, Key key}) : super(key: key);
 
   @override

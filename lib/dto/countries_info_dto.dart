@@ -11,6 +11,7 @@ class CountriesInfoDto {
   int critical;
   String casesPerOneMillion = "0";
   CountryInfo countryInfo;
+
   CountriesInfoDto.fromJsonMap(Map<String, dynamic> map)
       : country = toCountry(map),
         cases = map["cases"] ?? 0,

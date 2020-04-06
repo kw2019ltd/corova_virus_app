@@ -4,6 +4,7 @@ import 'package:pie_chart/pie_chart.dart';
 class PieChartImpl extends StatelessWidget {
   final Map<String, double> dataMap;
   final Color textColor;
+
   PieChartImpl({this.textColor, this.dataMap, Key key}) : super(key: key);
 
   final List<Color> colorList = [

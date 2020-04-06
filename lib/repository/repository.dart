@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:corovavirusapp/dto/countries_info_dto.dart';
 import 'package:corovavirusapp/dto/global_info_dto.dart';
 import 'package:corovavirusapp/dto/timeline/country_info_timeline_dto.dart';
+import 'package:corovavirusapp/dto/usa/usa_state_info.dart';
 import 'package:corovavirusapp/http/corona_api.dart';
 import 'package:corovavirusapp/repository/cache.dart';
 
@@ -39,6 +40,11 @@ class CoronaRepository {
     if (countriesInfoDto != null) {
       _cacheManager.countriesInfoDto = countriesInfoDto;
     }
+    return Future.value(countriesInfoDto);
+  }
+
+  Future<List<UsaStateInfo>> getUsaStateInfo() async {
+    List<UsaStateInfo> countriesInfoDto = await _coronaApi.getAllUsaInfo();
     return Future.value(countriesInfoDto);
   }
 

@@ -11,6 +11,7 @@ import 'package:share/share.dart';
 class CountryInfoWidget extends StatelessWidget {
   final CountriesInfoDto countriesInfoDto;
   final bool showCountry;
+
   CountryInfoWidget({this.showCountry = true, this.countriesInfoDto, Key key})
       : super(key: key);
 

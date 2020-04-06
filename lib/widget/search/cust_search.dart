@@ -4,6 +4,7 @@ import 'package:corovavirusapp/repository/shared_preferences.dart';
 import 'package:corovavirusapp/widget/config/widget_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class CustomSearchDelegate extends SearchDelegate<dynamic> {
   CustomSearchDelegate()
@@ -111,9 +112,10 @@ class CustomSearchDelegate extends SearchDelegate<dynamic> {
             trailing: CircleAvatar(
               backgroundColor: Theme.of(context).backgroundColor,
               radius: 15,
-              child: Image(
-                image: NetworkImage(countriesInfoDto[index].countryInfo.flag),
+              child: FadeInImage.memoryNetwork(
+                image: countriesInfoDto[index].countryInfo.flag,
                 fit: BoxFit.fill,
+                placeholder: kTransparentImage,
               ),
             ),
             onTap: () {

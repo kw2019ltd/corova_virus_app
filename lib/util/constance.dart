@@ -13,6 +13,7 @@ const String youtube_guide_url = "https://www.youtube.com/watch?v=qfjG0Jv313s";
 const corona_main_site = 'https://www.worldometers.info/coronavirus/';
 
 const cases = "cases";
+const todayCases = "todayCases";
 const deaths = "deaths";
 const todayDeaths = "todayDeaths";
 const recovered = "recovered";

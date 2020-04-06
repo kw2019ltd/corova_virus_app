@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:corovavirusapp/dto/countries_info_dto.dart';
 import 'package:corovavirusapp/dto/global_info_dto.dart';
 import 'package:corovavirusapp/dto/timeline/country_info_timeline_dto.dart';
+import 'package:corovavirusapp/dto/usa/usa_state_info.dart';
 import 'package:corovavirusapp/repository/cache.dart';
 import 'package:corovavirusapp/repository/repository.dart';
 import 'package:corovavirusapp/util/logging.dart';
@@ -60,6 +61,14 @@ class CoronaBloc {
     }
   }
 
+  Future<void> getUsaStateInfo() async {
+    final List<UsaStateInfo> usaInfo =
+        await _coronaRepository.getUsaStateInfo();
+    if (usaInfo != null) {
+      CoronaBloc().usaStateInfoBehaviorSubject$.add(usaInfo);
+    }
+  }
+
   void dispose() {
     _stateManager.dispose();
   }
@@ -79,6 +88,9 @@ class CoronaBloc {
       get countriesInfoDtoBehaviorSubject$ =>
           _stateManager.countriesInfoDtoBehaviorSubject;
 
+  BehaviorSubject<List<UsaStateInfo>> get usaStateInfoBehaviorSubject$ =>
+      _stateManager.usaStateInfoBehaviorSubject;
+
   BehaviorSubject<FAVORITE_EVENT> get favoriteEventBehaviorSubject$ =>
       _stateManager.favoriteEventBehaviorSubject;
 
@@ -96,6 +108,9 @@ class _StateManager {
   PublishSubject<CountryInfoTimelineDto>
       countriesInfoTimeLineDtoBehaviorSubject = PublishSubject();
 
+  BehaviorSubject<List<UsaStateInfo>> usaStateInfoBehaviorSubject =
+      BehaviorSubject();
+
   BehaviorSubject<FAVORITE_EVENT> favoriteEventBehaviorSubject =
       BehaviorSubject();
 
@@ -104,6 +119,7 @@ class _StateManager {
     globalInfoDtoBehaviorSubject.close();
     countriesInfoDtoBehaviorSubject.close();
     favoriteEventBehaviorSubject.close();
+    usaStateInfoBehaviorSubject.close();
     countriesInfoTimeLineDtoBehaviorSubject.close();
   }
 }

@@ -5,6 +5,7 @@ import 'dart:io' show HttpStatus;
 import 'package:corovavirusapp/dto/countries_info_dto.dart';
 import 'package:corovavirusapp/dto/global_info_dto.dart';
 import 'package:corovavirusapp/dto/timeline/country_info_timeline_dto.dart';
+import 'package:corovavirusapp/dto/usa/usa_state_info.dart';
 import 'package:corovavirusapp/http/api_config.dart';
 import 'package:corovavirusapp/repository/corona_bloc.dart';
 import 'package:corovavirusapp/util/logging.dart';
@@ -115,6 +116,33 @@ class CoronaApi {
           e,
           s);
       CoronaBloc().countriesInfoTimeLineDtoBehaviorSubject$.addError(e, s);
+    }
+    return null;
+  }
+
+  Future<List<UsaStateInfo>> getAllUsaInfo() async {
+    try {
+      final Uri uri = Uri.https(
+        heroku_2_base_url,
+        'states',
+      );
+      final Response response = await http.get(
+        uri,
+        headers: headers,
+      );
+
+      if (response.statusCode == HttpStatus.ok) {
+        return (json.decode(response.body) as List<dynamic>)
+            .map((dynamic res) =>
+                UsaStateInfo.fromJsonMap(res as Map<String, dynamic>))
+            .toList();
+      }
+      CoronaBloc()
+          .countriesInfoDtoBehaviorSubject$
+          .addError(response.statusCode);
+    } catch (e, s) {
+      logger.severe("error while calling getAllCountriesInfo api", e, s);
+      CoronaBloc().countriesInfoDtoBehaviorSubject$.addError(e, s);
     }
     return null;
   }

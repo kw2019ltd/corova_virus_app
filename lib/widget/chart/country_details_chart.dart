@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:corovavirusapp/dto/countries_info_dto.dart';
 import 'package:corovavirusapp/widget/chart/country_line_chart.dart';
 import 'package:corovavirusapp/widget/chart/pie_chart.dart';
+import 'package:corovavirusapp/widget/chart/usa_country_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,7 +20,7 @@ class CountryInfoHistoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 0,
-      length: 2,
+      length: isUSA(countriesInfoDto.country) ? 3 : 2,
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(100),
@@ -40,6 +41,9 @@ class CountryInfoHistoryWidget extends StatelessWidget {
                 PieChartImpl(
                   dataMap: getPieChartData(),
                 ),
+                if (isUSA(countriesInfoDto.country)) ...{
+                  UsaWidget(),
+                }
               ],
             ),
           ),
@@ -91,7 +95,7 @@ class _AppBarWidget extends StatelessWidget {
           style: TextStyle(
             fontSize: 24,
           )),
-      bottom: const TabBar(
+      bottom: TabBar(
         tabs: [
           Tab(
             icon: Icon(FontAwesomeIcons.chartLine),
@@ -99,8 +103,17 @@ class _AppBarWidget extends StatelessWidget {
           Tab(
             icon: Icon(FontAwesomeIcons.chartPie),
           ),
+          if (isUSA(country)) ...{
+            Tab(
+              icon: Icon(FontAwesomeIcons.flagUsa),
+            ),
+          }
         ],
       ),
     );
   }
+}
+
+bool isUSA(String country) {
+  return "USA".toLowerCase() == country.toLowerCase();
 }
