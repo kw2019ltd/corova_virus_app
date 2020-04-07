@@ -16,9 +16,9 @@ https://www.youtube.com/watch?v=qfjG0Jv313s
 ![app-screenshot1](screenshots/Screenshot_1585208729.png)
 ![app-screenshot2](screenshots/Screenshot_1585208734.png)
 ![app-screenshot3](screenshots/Screenshot_1585208741.png)
-![app-screenshot4](screenshots/Screenshot_20200407-074831)
+![app-screenshot4](screenshots/Screenshot_20200407-074831.jpg)
 ![app-screenshot5](screenshots/Screenshot_1585208816.png)
-![app-screenshot5](screenshots/Screenshot_20200407-074910.png)
+![app-screenshot5](screenshots/Screenshot_20200407-074910.jpg)
 
 
 ## Contributions are welcome
