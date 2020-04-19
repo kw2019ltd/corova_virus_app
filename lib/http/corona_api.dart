@@ -15,7 +15,7 @@ import 'package:http/http.dart';
 class CoronaApi {
   Future<GlobalInfoDto> getGlobalInfo() async {
     try {
-      final Uri uri = Uri.https(heroku_2_base_url, 'all');
+      final Uri uri = Uri.https(heroku_2_base_url, 'v2/all');
       final Response response = await http.get(
         uri,
         headers: headers,
@@ -38,7 +38,7 @@ class CoronaApi {
     try {
       final Uri uri = Uri.https(
         heroku_2_base_url,
-        'countries',
+        'v2/countries',
       );
       final Response response = await http.get(
         uri,
@@ -66,7 +66,7 @@ class CoronaApi {
     try {
       final Uri uri = Uri.https(
         heroku_2_base_url,
-        'countries',
+        'v2/countries',
         {"sort": sortBy},
       );
       final Response response = await http.get(
@@ -124,7 +124,7 @@ class CoronaApi {
     try {
       final Uri uri = Uri.https(
         heroku_2_base_url,
-        'states',
+        'v2/states',
       );
       final Response response = await http.get(
         uri,
