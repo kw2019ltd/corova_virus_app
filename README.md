@@ -8,7 +8,7 @@ https://www.youtube.com/watch?v=qfjG0Jv313s
 
 ## Download app
 
-- [Android](https://github.com/kw2019ltd/corova_virus_app/raw/master/output/app-release.apk)
+- [Android](https://github.com/kw2019ltd/corova_virus_app/raw/master/app-release.apk)
 
 
 ## ScreenShot (support Dark mode)
